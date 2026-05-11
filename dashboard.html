@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Dashboard | Vouac</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-container {
+            padding: 10rem 0 6rem;
+            min-height: 100vh;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Member ID Card CSS Implementation */
+        .id-card-wrap {
+            perspective: 1000px;
+        }
+
+        .id-card {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1.6 / 1;
+            background: url('images/high-end-digital-membership-card-for-vou.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 16px;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            color: #fff;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .id-card:hover {
+            transform: rotateY(5deg) rotateX(2deg);
+        }
+
+        .id-card .member-info {
+            z-index: 2;
+        }
+
+        .id-card .member-name {
+            font-family: var(--font-header);
+            font-size: 1.8rem;
+            letter-spacing: 0.05rem;
+            margin-bottom: 0.2rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .id-card .member-status {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .id-card .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            z-index: 2;
+        }
+
+        .id-card .member-id-num {
+            font-family: monospace;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            letter-spacing: 0.1rem;
+        }
+
+        /* Badge Styling */
+        .certification-section {
+            background: var(--card-bg);
+            padding: 3rem;
+            border: 1px solid rgba(184, 149, 106, 0.1);
+        }
+
+        .badge-display {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .badge-img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+
+        .badge-details h4 {
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-details p {
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        .dashboard-nav {
+            margin-bottom: 4rem;
+            display: flex;
+            gap: 2rem;
+            border-bottom: 1px solid rgba(245, 240, 228, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-color);
+            opacity: 0.4;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            transition: var(--transition);
+        }
+
+        .nav-item.active {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">VOUAC</a>
+            <div class="nav-links">
+                <a href="spots.html">Directory</a>
+                <a href="index.html#curriculum">Curriculum</a>
+                <a href="index.html" class="cta-nav">Sign Out</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="container">
+            <div class="dashboard-nav">
+                <a href="#" class="nav-item active">Certifications</a>
+                <a href="#" class="nav-item">Legal Shield</a>
+                <a href="#" class="nav-item">Module Progress</a>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- ID Card Section -->
+                <div class="id-card-column">
+                    <span class="eyebrow">Digital Member ID</span>
+                    <h2>Verified Identity.</h2>
+                    <p style="margin-bottom: 3rem;">Your digital signature for the 2026 season. Use this ID when interacting with community hubs or verified landowners.</p>
+                    
+                    <div class="id-card-wrap">
+                        <div class="id-card">
+                            <div class="member-info">
+                                <div class="member-name" id="display-name">Explorer</div>
+                                <div class="member-status">Certified Explorer</div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="member-id-num">ID: VOU-2026-8829</div>
+                                <div class="verified-seal">
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="20" cy="20" r="18" stroke="#B8956A" stroke-width="1" stroke-dasharray="2 2"/>
+                                        <path d="M12 20L17.5 25.5L28 15" stroke="#B8956A" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certification Section -->
+                <div class="cert-column">
+                    <span class="eyebrow">Achievements</span>
+                    <h2>Certification Status.</h2>
+                    <p style="margin-bottom: 3rem;">Badges earned through the Micro-Survie program and community status check contributions.</p>
+
+                    <div class="certification-section">
+                        <div class="badge-display">
+                            <img src="images/premium-minimalist-digital-badge-for-vo.png" alt="Vouac Certified Explorer Badge" class="badge-img">
+                            <div class="badge-details">
+                                <h4>Certified Explorer</h4>
+                                <p>Awarded for completing the Administrative Intelligence module and acknowledging the 2026 Legal Disclosure.</p>
+                                <p style="margin-top: 1rem; color: var(--accent-color); font-size: 0.75rem;">VALID UNTIL DEC 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="certification-section" style="margin-top: 2rem; opacity: 0.5;">
+                        <div class="badge-display">
+                            <div style="width: 120px; height: 120px; background: rgba(255,255,255,0.05); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M12 15V17M12 7V13M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="badge-details">
+                                <h4>Compliance Guardian</h4>
+                                <p>Locked. Complete the 'Environmental Impact' module to unlock this certification.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vouac SAS. Member ID VOU-2026-8829 is valid only for the registered email. Certified status does not override local police authority.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple name retrieval from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedEmail = localStorage.getItem('vouac_member_email');
+            if (storedEmail) {
+                const namePart = storedEmail.split('@')[0];
+                document.getElementById('display-name').textContent = namePart.charAt(0).toUpperCase() + namePart.slice(1);
+            }
+        });
+    </script>
+</body>
+</html>

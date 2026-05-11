@@ -53,10 +53,18 @@ if (WAITLIST_FORM) {
             });
 
             if (response.ok) {
+                // Save member context for dashboard
+                localStorage.setItem('vouac_member_email', email);
+                
                 // UI state: success
                 WAITLIST_FORM.classList.add('hidden');
                 FORM_RESPONSE.classList.remove('hidden');
                 updateSignupCount();
+
+                // Redirect to dashboard after a delay to show certification
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 2000);
             } else {
                 throw new Error('Database insertion failed');
             }

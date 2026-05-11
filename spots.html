@@ -11,23 +11,81 @@
     <style>
         .spots-hero {
             padding: 12rem 0 6rem;
-            background: #080808;
+            position: relative;
+            background-size: cover;
+            background-position: center;
             border-bottom: 1px solid rgba(184, 149, 106, 0.1);
         }
-        .spot-grid {
+        .spots-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(13,13,13,0.8) 0%, rgba(13,13,13,1) 100%);
+            z-index: 1;
+        }
+        .spots-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .filter-bar {
+            background: var(--card-bg);
+            padding: 2rem;
+            margin-top: -3rem;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(184, 149, 106, 0.1);
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .filter-group label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            opacity: 0.5;
+        }
+        .filter-group select {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(245, 240, 228, 0.2);
+            color: var(--text-color);
+            padding: 0.5rem 0;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+            cursor: pointer;
+            min-width: 150px;
+        }
+        .filter-group select option {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .spots-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
             padding: 6rem 0;
+            min-height: 400px;
         }
         .spot-card {
             background: var(--card-bg);
             padding: 2.5rem;
             border: 1px solid rgba(245, 240, 228, 0.05);
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
         }
         .spot-card:hover {
             border-color: var(--accent-color);
+            transform: translateY(-5px);
         }
         .spot-tag {
             display: inline-block;
@@ -38,23 +96,57 @@
             margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 0.1rem;
+            align-self: flex-start;
         }
-        .risk-low { border-left: 3px solid #4CAF50; }
+        .risk-very-low { border-left: 3px solid #4CAF50; }
+        .risk-low { border-left: 3px solid #8BC34A; }
         .risk-medium { border-left: 3px solid #FFC107; }
         .risk-high { border-left: 3px solid #F44336; }
         
         .spot-meta {
-            margin-top: 1.5rem;
+            margin-top: auto;
+            padding-top: 1.5rem;
             font-size: 0.9rem;
-            opacity: 0.6;
             display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .risk-indicator {
+            opacity: 0.6;
+            font-size: 0.8rem;
         }
         .spot-coords {
             font-family: monospace;
             color: var(--accent-color);
+            font-size: 0.8rem;
         }
+        .source-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            opacity: 0.7;
+        }
+        .source-link:hover {
+            opacity: 1;
+        }
+
+        .loader {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem;
+            font-family: var(--font-header);
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem;
+            opacity: 0.5;
+        }
+
         /* Terms Modal specific styling */
         .terms-list {
             text-align: left;
@@ -101,7 +193,7 @@
     </header>
 
     <main>
-        <section class="spots-hero">
+        <section class="spots-hero" style="background-image: url('images/cinematic-wide-angle-editorial-photograp.png');">
             <div class="container">
                 <span class="eyebrow">Verified Intelligence</span>
                 <h1>2026 Bivouac Directory.</h1>
@@ -110,67 +202,29 @@
         </section>
 
         <section class="container">
-            <div class="spot-grid">
-                <!-- Sample Spots from Market Research -->
-                <article class="spot-card risk-low">
-                    <span class="spot-tag">IDF | Fontainebleau</span>
-                    <h3>Aire de Bourron-Marlotte</h3>
-                    <p>Official ONF designated area. Low enforcement risk for one-night stays.</p>
-                    <div class="spot-meta">
-                        <span class="spot-coords">48.3545, 2.7165</span>
-                        <span>Constraint: Strict no-fire zone.</span>
-                    </div>
-                </article>
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label>Region</label>
+                    <select id="region-filter">
+                        <option value="all">All Regions</option>
+                        <option value="IDF">Ile-de-France</option>
+                        <option value="AURA">Auvergne-Rhône-Alpes</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Risk Level</label>
+                    <select id="risk-filter">
+                        <option value="all">All Risks</option>
+                        <option value="Very Low">Very Low</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+            </div>
 
-                <article class="spot-card risk-low">
-                    <span class="spot-tag">AURA | Pilat</span>
-                    <h3>Crêt de la Perdrix</h3>
-                    <p>High altitude tolerance. Spectacular sunrise view. Subject to seasonal wind bans.</p>
-                    <div class="spot-meta">
-                        <span class="spot-coords">45.3670, 4.5760</span>
-                        <span>Constraint: Prohibited during peak fire season.</span>
-                    </div>
-                </article>
-
-                <article class="spot-card risk-medium">
-                    <span class="spot-tag">IDF | Rambouillet</span>
-                    <h3>Etang de la Tour</h3>
-                    <p>Designated area near GR1. Strict 19:00 - 09:00 window required.</p>
-                    <div class="spot-meta">
-                        <span class="spot-coords">48.7290, 1.8395</span>
-                        <span>Constraint: 200m water-source rule active.</span>
-                    </div>
-                </article>
-
-                <article class="spot-card risk-low">
-                    <span class="spot-tag">AURA | Vercors</span>
-                    <h3>Cabane de Pré Peyret</h3>
-                    <p>Located within the Reserve des Hauts Plateaux. One-night tolerance near the hut.</p>
-                    <div class="spot-meta">
-                        <span class="spot-coords">44.8250, 5.4830</span>
-                        <span>Constraint: No fires, including stoves (seasonal).</span>
-                    </div>
-                </article>
-
-                <article class="spot-card risk-high">
-                    <span class="spot-tag">AURA | Lyon West</span>
-                    <h3>Signal de Saint-André</h3>
-                    <p>High visibility area. Stealth bivouac methodology mandatory to avoid ONF scrutiny.</p>
-                    <div class="spot-meta">
-                        <span class="spot-coords">45.6020, 4.5240</span>
-                        <span>Constraint: Urban-adjacent surveillance.</span>
-                    </div>
-                </article>
-
-                <article class="spot-card risk-low">
-                    <span class="spot-tag">AURA | Annecy</span>
-                    <h3>Sommet du Semnoz</h3>
-                    <p>Authorized on public domain. Verify current municipal decrees upon arrival.</p>
-                    <div class="spot-meta">
-                        <span class="spot-coords">45.7950, 6.1050</span>
-                        <span>Constraint: No ground fires permitted.</span>
-                    </div>
-                </article>
+            <div id="spots-grid" class="spots-grid">
+                <div id="spots-loader" class="loader">Accessing legal database...</div>
             </div>
         </section>
     </main>
@@ -207,31 +261,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-    <script>
-        // Specific logic for the spots directory gate
-        const accessBtn = document.getElementById('access-btn');
-        const termsCheckbox = document.getElementById('accept-terms');
-        const spotsModal = document.getElementById('spots-access-modal');
-
-        if (termsCheckbox) {
-            termsCheckbox.addEventListener('change', (e) => {
-                accessBtn.disabled = !e.target.checked;
-            });
-        }
-
-        if (accessBtn) {
-            accessBtn.addEventListener('click', () => {
-                spotsModal.classList.add('hidden');
-                localStorage.setItem('vouac_spots_access_2026', 'true');
-            });
-        }
-
-        window.addEventListener('load', () => {
-            if (localStorage.getItem('vouac_spots_access_2026')) {
-                spotsModal.classList.add('hidden');
-            }
-        });
-    </script>
+    <script src="spots.js"></script>
 </body>
 </html>

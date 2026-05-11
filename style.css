@@ -99,6 +99,7 @@ nav {
     font-weight: 700;
     letter-spacing: 0.1rem;
     color: var(--text-color);
+    text-decoration: none;
 }
 
 .nav-links {
@@ -425,6 +426,12 @@ nav {
     margin-bottom: 3rem;
     font-size: 1.2rem;
 }
+
+/* Risk Levels */
+.risk-very-low { border-left: 3px solid #4CAF50 !important; }
+.risk-low { border-left: 3px solid #8BC34A !important; }
+.risk-medium { border-left: 3px solid #FFC107 !important; }
+.risk-high { border-left: 3px solid #F44336 !important; }
 
 /* Footer */
 footer {

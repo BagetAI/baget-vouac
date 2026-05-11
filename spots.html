@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verified Bivouac Spots | Vouac</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .spots-hero {
+            padding: 12rem 0 6rem;
+            background: #080808;
+            border-bottom: 1px solid rgba(184, 149, 106, 0.1);
+        }
+        .spot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 6rem 0;
+        }
+        .spot-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border: 1px solid rgba(245, 240, 228, 0.05);
+            transition: var(--transition);
+        }
+        .spot-card:hover {
+            border-color: var(--accent-color);
+        }
+        .spot-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.7rem;
+            background: rgba(184, 149, 106, 0.1);
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+        .risk-low { border-left: 3px solid #4CAF50; }
+        .risk-medium { border-left: 3px solid #FFC107; }
+        .risk-high { border-left: 3px solid #F44336; }
+        
+        .spot-meta {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.6;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .spot-coords {
+            font-family: monospace;
+            color: var(--accent-color);
+        }
+        /* Terms Modal specific styling */
+        .terms-list {
+            text-align: left;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 1rem;
+            border-bottom: 1px solid rgba(245, 240, 228, 0.1);
+        }
+        .terms-list li {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        .checkbox-group input {
+            margin-top: 0.3rem;
+            cursor: pointer;
+        }
+        .checkbox-group label {
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">VOUAC</a>
+            <div class="nav-links">
+                <a href="index.html#philosophy">Philosophy</a>
+                <a href="index.html#curriculum">Curriculum</a>
+                <a href="index.html#shield">Legal Shield</a>
+                <a href="index.html#waitlist" class="cta-nav">Join Community</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="spots-hero">
+            <div class="container">
+                <span class="eyebrow">Verified Intelligence</span>
+                <h1>2026 Bivouac Directory.</h1>
+                <p>Authorized spots in Ile-de-France and Auvergne-Rhône-Alpes, cross-referenced with active ONF/PNR decrees.</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="spot-grid">
+                <!-- Sample Spots from Market Research -->
+                <article class="spot-card risk-low">
+                    <span class="spot-tag">IDF | Fontainebleau</span>
+                    <h3>Aire de Bourron-Marlotte</h3>
+                    <p>Official ONF designated area. Low enforcement risk for one-night stays.</p>
+                    <div class="spot-meta">
+                        <span class="spot-coords">48.3545, 2.7165</span>
+                        <span>Constraint: Strict no-fire zone.</span>
+                    </div>
+                </article>
+
+                <article class="spot-card risk-low">
+                    <span class="spot-tag">AURA | Pilat</span>
+                    <h3>Crêt de la Perdrix</h3>
+                    <p>High altitude tolerance. Spectacular sunrise view. Subject to seasonal wind bans.</p>
+                    <div class="spot-meta">
+                        <span class="spot-coords">45.3670, 4.5760</span>
+                        <span>Constraint: Prohibited during peak fire season.</span>
+                    </div>
+                </article>
+
+                <article class="spot-card risk-medium">
+                    <span class="spot-tag">IDF | Rambouillet</span>
+                    <h3>Etang de la Tour</h3>
+                    <p>Designated area near GR1. Strict 19:00 - 09:00 window required.</p>
+                    <div class="spot-meta">
+                        <span class="spot-coords">48.7290, 1.8395</span>
+                        <span>Constraint: 200m water-source rule active.</span>
+                    </div>
+                </article>
+
+                <article class="spot-card risk-low">
+                    <span class="spot-tag">AURA | Vercors</span>
+                    <h3>Cabane de Pré Peyret</h3>
+                    <p>Located within the Reserve des Hauts Plateaux. One-night tolerance near the hut.</p>
+                    <div class="spot-meta">
+                        <span class="spot-coords">44.8250, 5.4830</span>
+                        <span>Constraint: No fires, including stoves (seasonal).</span>
+                    </div>
+                </article>
+
+                <article class="spot-card risk-high">
+                    <span class="spot-tag">AURA | Lyon West</span>
+                    <h3>Signal de Saint-André</h3>
+                    <p>High visibility area. Stealth bivouac methodology mandatory to avoid ONF scrutiny.</p>
+                    <div class="spot-meta">
+                        <span class="spot-coords">45.6020, 4.5240</span>
+                        <span>Constraint: Urban-adjacent surveillance.</span>
+                    </div>
+                </article>
+
+                <article class="spot-card risk-low">
+                    <span class="spot-tag">AURA | Annecy</span>
+                    <h3>Sommet du Semnoz</h3>
+                    <p>Authorized on public domain. Verify current municipal decrees upon arrival.</p>
+                    <div class="spot-meta">
+                        <span class="spot-coords">45.7950, 6.1050</span>
+                        <span>Constraint: No ground fires permitted.</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vouac SAS. All content is strictly educational. Bivouacking in France is subject to local decrees. Always verify with ONF/PNR before your stay.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mandatory Directory Access Modal -->
+    <div id="spots-access-modal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="eyebrow">Directory Access Gate</span>
+            <h3>Bivouac Liability & Risk Disclosure</h3>
+            
+            <div class="terms-list">
+                <ul>
+                    <li><strong>Legal Distinction (Art. R111-32):</strong> I understand "Bivouac" is sunset-to-sunrise only. Staying multiple nights is "Camping Sauvage" and is strictly illegal.</li>
+                    <li><strong>Environmental Impact (Art. L161-1):</strong> I acknowledge that lighting fires in protected zones carries a 135€ fine. I will use cold-survival protocols in fire-ban zones.</li>
+                    <li><strong>Dynamic Decrees:</strong> I accept that Vouac coordinates are for information only. Local Prefectural decrees override all data and I will verify signage.</li>
+                    <li><strong>Assumption of Risk:</strong> I assume full responsibility for any legal fines or physical risks associated with my wilderness stay.</li>
+                </ul>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="accept-terms">
+                <label for="accept-terms">I have read the 2026 Disclosure and understand the distinction between Bivouac and Camping under French Law.</label>
+            </div>
+
+            <button id="access-btn" class="btn-primary" disabled>Unlock Verified Spots</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Specific logic for the spots directory gate
+        const accessBtn = document.getElementById('access-btn');
+        const termsCheckbox = document.getElementById('accept-terms');
+        const spotsModal = document.getElementById('spots-access-modal');
+
+        if (termsCheckbox) {
+            termsCheckbox.addEventListener('change', (e) => {
+                accessBtn.disabled = !e.target.checked;
+            });
+        }
+
+        if (accessBtn) {
+            accessBtn.addEventListener('click', () => {
+                spotsModal.classList.add('hidden');
+                localStorage.setItem('vouac_spots_access_2026', 'true');
+            });
+        }
+
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('vouac_spots_access_2026')) {
+                spotsModal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

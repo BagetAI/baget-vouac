@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vouac | Autonomy Without Liability</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">VOUAC</div>
+            <div class="nav-links">
+                <a href="#features">Philosophy</a>
+                <a href="#shield">Legal Shield</a>
+                <a href="#waitlist" class="btn-outline">Join the Community</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-bg" style="background-image: url('images/editorial-photography-of-a-minimalist-bi.png');"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <p class="eyebrow">The Intelligence of Bivouacking</p>
+                <h1>Nature Autonomy without the Fines.</h1>
+                <p class="hero-sub">The legal blueprint for wilderness survival. 48 hours of independence, 100% legal peace of mind.</p>
+                <div class="hero-actions">
+                    <a href="#waitlist" class="btn-primary">Download the 2026 Legal Guide</a>
+                    <a href="#features" class="btn-secondary">Explore the Curriculum</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Compliance-First Autonomy</h2>
+                    <p>Generic tutorials ignore the complexity of French law. We don't.</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <span class="accent-line"></span>
+                        <h3>The Legal Shield</h3>
+                        <p>A verified database of low-risk spots in IDF and AURA with real-time decree citations for Gendarme interactions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="accent-line"></span>
+                        <h3>Micro-Survie</h3>
+                        <p>Editorial video modules teaching 48-hour survival. Zero military grit—100% professional utility for the urbanite.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="accent-line"></span>
+                        <h3>Live Data Moat</h3>
+                        <p>Community-sourced status checks on patrol activity, fire bans, and spot accessibility across France.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="shield" class="lead-magnet">
+            <div class="container split">
+                <div class="split-content">
+                    <h2>Avoid the 1,500€ Fine.</h2>
+                    <p>In 2026, ONF patrols have increased by 35%. Our Legal Bivouac Guide provides the exact administrative decree numbers and "Gendarme Scripts" you need to professionally navigate legal boundaries.</p>
+                    <ul class="feature-list">
+                        <li>Bivouac vs. Camping: The legal distinction</li>
+                        <li>25 Vetted low-risk coordinates in IDF/AURA</li>
+                        <li>2026 Fire Ban (Arrêtés Prefectoraux) checklists</li>
+                    </ul>
+                </div>
+                <div id="waitlist" class="split-form">
+                    <div class="form-wrapper">
+                        <h3>Secure Your Access</h3>
+                        <p>Join <span id="signup-count">...</span> professionals already in the Vouac community.</p>
+                        <form id="waitlist-form">
+                            <input type="email" name="email" placeholder="Your email address" required>
+                            <button type="submit" id="submit-btn">Get the 2026 Legal Shield</button>
+                        </form>
+                        <p id="form-response" class="hidden"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">VOUAC</div>
+                    <p>Autonomy Without Liability.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Terms (CGU)</a>
+                    <a href="#">Liability Waiver</a>
+                    <a href="#">Privacy Policy (GDPR)</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>&copy; 2026 Vouac SAS. All content is strictly educational. Practicing survival skills in protected zones without local authorization may incur fines.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fire Safety Modal -->
+    <div id="legal-fire-gate" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Safety & Legal Compliance</h3>
+            <p>Under French law (Art. L161-1 Code de l'Env.), lighting fires in protected zones during drought periods carries a minimum 135 Euro fine and potential criminal charges. Vouac content is strictly educational.</p>
+            <button onclick="closeModal()" class="btn-primary">I confirm I will check local Fire Bans before practicing.</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

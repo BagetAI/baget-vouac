@@ -2,18 +2,43 @@ const SPOTS_DB_ID = '536646df-d658-43a9-8895-becab1994215';
 let allSpots = [];
 
 /**
- * Fetch spots from the database
+ * Fetch spots from the verified 2026 local source first, then fallback/merge with database
  */
 async function fetchSpots() {
     const grid = document.getElementById('spots-grid');
     const loader = document.getElementById('spots-loader');
     
     try {
-        const response = await fetch(`https://app.baget.ai/api/public/databases/${SPOTS_DB_ID}/rows`);
-        if (!response.ok) throw new Error('Failed to fetch spots');
-        
-        const data = await response.json();
-        allSpots = data.rows;
+        // Step 1: Fetch the 2026 Verified Data (Primary source for compliance accuracy)
+        const localResponse = await fetch('data/spots_2026.json');
+        let localData = [];
+        if (localResponse.ok) {
+            localData = await localResponse.json();
+            // Transform local format to match DB row structure for rendering consistency
+            localData = localData.map(item => ({ data: item }));
+        }
+
+        // Step 2: Fetch the Dynamic Database (Community/Legacy spots)
+        let dbData = [];
+        try {
+            const dbResponse = await fetch(`https://app.baget.ai/api/public/databases/${SPOTS_DB_ID}/rows`);
+            if (dbResponse.ok) {
+                const json = await dbResponse.json();
+                dbData = json.rows;
+            }
+        } catch (dbError) {
+            console.warn('Database fetch failed, relying on local verified data.', dbError);
+        }
+
+        // Merge sources: Local verified spots take precedence (deduplicate by name)
+        const merged = [...localData];
+        dbData.forEach(dbSpot => {
+            if (!merged.find(m => m.data.name === dbSpot.data.name)) {
+                merged.push(dbSpot);
+            }
+        });
+
+        allSpots = merged;
         
         if (loader) loader.style.display = 'none';
         renderSpots(allSpots);
@@ -39,17 +64,18 @@ function renderSpots(spots) {
 
     spots.forEach(spot => {
         const data = spot.data;
-        const riskClass = `risk-${data.risk_level.toLowerCase().replace(' ', '-')}`;
+        const riskLevel = data.risk_level || 'Medium';
+        const riskClass = `risk-${riskLevel.toLowerCase().replace(' ', '-')}`;
         
         const card = document.createElement('article');
         card.className = `spot-card ${riskClass}`;
         
         card.innerHTML = `
-            <span class="spot-tag">${data.region} | ${data.department}</span>
+            <span class="spot-tag">${data.region || 'FR'} | ${data.department || 'Unknown'}</span>
             <h3>${data.name}</h3>
-            <p>${data.legality_notes}</p>
+            <p>${data.legality_notes || 'No specific legal notes available.'}</p>
             <div class="spot-meta">
-                <span class="risk-indicator">Risk: ${data.risk_level}</span>
+                <span class="risk-indicator">Risk: ${riskLevel}</span>
                 <span class="spot-coords">${data.latitude}, ${data.longitude}</span>
             </div>
             ${data.source_url ? `<a href="${data.source_url}" target="_blank" class="source-link">Official Decree &rarr;</a>` : ''}
@@ -95,7 +121,7 @@ function initModal() {
         accessBtn.addEventListener('click', () => {
             spotsModal.classList.add('hidden');
             localStorage.setItem('vouac_spots_access_2026', 'true');
-            fetchSpots(); // Fetch data after unlocking
+            fetchSpots(); 
         });
     }
 

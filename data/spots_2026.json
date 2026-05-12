@@ -1,0 +1,252 @@
+[
+  {
+    "name": "Aire de Bourron-Marlotte (Fontainebleau)",
+    "region": "IDF",
+    "department": "Seine-et-Marne",
+    "latitude": 48.3545,
+    "longitude": 2.7165,
+    "risk_level": "Very Low",
+    "legality_notes": "ONF Authorized bivouac zone. Sunset-to-sunrise strictly enforced. No fires permitted.",
+    "source_url": "https://www.onf.fr/vivre-la-foret/+/2a7a::faq-agence-ile-de-france-ouest.html"
+  },
+  {
+    "name": "Aire de la Faisanderie (Fontainebleau)",
+    "region": "IDF",
+    "department": "Seine-et-Marne",
+    "latitude": 48.4068,
+    "longitude": 2.6789,
+    "risk_level": "Very Low",
+    "legality_notes": "Official ONF zone near the forest office. Safe for single night stays. 19:00 - 09:00.",
+    "source_url": "https://www.onf.fr/vivre-la-foret/+/2a7a::faq-agence-ile-de-france-ouest.html"
+  },
+  {
+    "name": "Aire de l'Hippodrome de la Solle",
+    "region": "IDF",
+    "department": "Seine-et-Marne",
+    "latitude": 48.4285,
+    "longitude": 2.6895,
+    "risk_level": "Very Low",
+    "legality_notes": "Large authorized perimeter. Low patrol frequency at night. No fires or gas stoves allowed.",
+    "source_url": "https://www.onf.fr/vivre-la-foret/+/2a7a::faq-agence-ile-de-france-ouest.html"
+  },
+  {
+    "name": "Etang de la Tour (Rambouillet)",
+    "region": "IDF",
+    "department": "Yvelines",
+    "latitude": 48.729,
+    "longitude": 1.8395,
+    "risk_level": "Low",
+    "legality_notes": "Designated area near the GR1. Patrols active on weekends. Leave no trace mandatory.",
+    "source_url": "https://www.onf.fr/vivre-la-foret/+/2a7a::faq-agence-ile-de-france-ouest.html"
+  },
+  {
+    "name": "Bois de l'Etang d'Or (Rambouillet)",
+    "region": "IDF",
+    "department": "Yvelines",
+    "latitude": 48.636,
+    "longitude": 1.821,
+    "risk_level": "Low",
+    "legality_notes": "Tolerance zone near established markers. 200m rule from water bodies applies.",
+    "source_url": "https://www.onf.fr/vivre-la-foret/+/2a7a::faq-agence-ile-de-france-ouest.html"
+  },
+  {
+    "name": "PNR Vexin (Roche-Guyon)",
+    "region": "IDF",
+    "department": "Val-d'Oise",
+    "latitude": 49.083,
+    "longitude": 1.631,
+    "risk_level": "Medium",
+    "legality_notes": "Strictly outside nature reserves and agricultural plots. 100m distance from public roads.",
+    "source_url": "http://www.pnr-vexin-francais.fr/"
+  },
+  {
+    "name": "Haute Vallée de Chevreuse (Senlisse)",
+    "region": "IDF",
+    "department": "Yvelines",
+    "latitude": 48.683,
+    "longitude": 1.972,
+    "risk_level": "Medium",
+    "legality_notes": "Authorized only within GR11 corridor transit. No wild camping (multiple nights).",
+    "source_url": "https://www.parc-naturel-chevreuse.fr/"
+  },
+  {
+    "name": "Crêt de la Perdrix (Pilat)",
+    "region": "AURA",
+    "department": "Loire",
+    "latitude": 45.367,
+    "longitude": 4.576,
+    "risk_level": "Low",
+    "legality_notes": "High altitude tolerance. Extreme wind exposure. 19:00 - 09:00 rules strictly apply.",
+    "source_url": "https://www.parc-naturel-pilat.fr/en/plan-your-stay/accommodation/bivouac"
+  },
+  {
+    "name": "Crêt de l'Oeillon (Pilat)",
+    "region": "AURA",
+    "department": "Loire",
+    "latitude": 45.385,
+    "longitude": 4.598,
+    "risk_level": "Low",
+    "legality_notes": "Summit bivouac allowed. No stoves during high fire-risk months (July-August).",
+    "source_url": "https://www.parc-naturel-pilat.fr/en/plan-your-stay/accommodation/bivouac"
+  },
+  {
+    "name": "La Jasserie (Pilat)",
+    "region": "AURA",
+    "department": "Loire",
+    "latitude": 45.372,
+    "longitude": 4.565,
+    "risk_level": "Low",
+    "legality_notes": "Managed bivouac area nearby. Proximity to GR7 makes it a legal transit stop.",
+    "source_url": "https://www.parc-naturel-pilat.fr/en/plan-your-stay/accommodation/bivouac"
+  },
+  {
+    "name": "Plateau de la Danse (Gorges de la Loire)",
+    "region": "AURA",
+    "department": "Loire",
+    "latitude": 45.452,
+    "longitude": 4.238,
+    "risk_level": "Medium",
+    "legality_notes": "Tolerance outside core nature reserves. Avoid lighting any fire source.",
+    "source_url": "https://www.parc-naturel-pilat.fr/en/plan-your-stay/accommodation/bivouac"
+  },
+  {
+    "name": "Crêt de l'Airelle (Monts du Lyonnais)",
+    "region": "AURA",
+    "department": "Rhône",
+    "latitude": 45.658,
+    "longitude": 4.512,
+    "risk_level": "Medium",
+    "legality_notes": "Rural forest tolerance. Stay on public domain paths. Stealth is highly recommended.",
+    "source_url": "https://www.rhone.fr/"
+  },
+  {
+    "name": "Cabane de Pré Peyret (Vercors)",
+    "region": "AURA",
+    "department": "Drôme",
+    "latitude": 44.825,
+    "longitude": 5.483,
+    "risk_level": "Low",
+    "legality_notes": "Legal bivouac zone within the Reserve des Hauts Plateaux. Mandatory 200m from water.",
+    "source_url": "https://www.parc-du-vercors.fr/reserve-naturelle-des-hauts-plateaux"
+  },
+  {
+    "name": "Plaine de la Queyrie (Vercors)",
+    "region": "AURA",
+    "department": "Drôme",
+    "latitude": 44.862,
+    "longitude": 5.518,
+    "risk_level": "Low",
+    "legality_notes": "High aesthetic value. Thermal drone patrols active. Use cold-survival protocols.",
+    "source_url": "https://www.parc-du-vercors.fr/reserve-naturelle-des-hauts-plateaux"
+  },
+  {
+    "name": "Col de la Croix Perrin (Vercors)",
+    "region": "AURA",
+    "department": "Isère",
+    "latitude": 45.143,
+    "longitude": 5.534,
+    "risk_level": "Low",
+    "legality_notes": "Transit bivouac permitted. Avoid blocking forest management tracks.",
+    "source_url": "https://www.parc-du-vercors.fr/reserve-naturelle-des-hauts-plateaux"
+  },
+  {
+    "name": "Dent de Crolles Base (Chartreuse)",
+    "region": "AURA",
+    "department": "Isère",
+    "latitude": 45.312,
+    "longitude": 5.85,
+    "risk_level": "Low",
+    "legality_notes": "Bivouac permitted above 1500m. Pack out all waste. No fires allowed.",
+    "source_url": "https://www.parc-chartreuse.net/"
+  },
+  {
+    "name": "Prairie de la Folletière (Chartreuse)",
+    "region": "AURA",
+    "department": "Isère",
+    "latitude": 45.345,
+    "longitude": 5.862,
+    "risk_level": "Medium",
+    "legality_notes": "Permitted outside active grazing seasons. Respect temporary local fencing.",
+    "source_url": "https://www.parc-chartreuse.net/"
+  },
+  {
+    "name": "Col du Coq (Chartreuse)",
+    "region": "AURA",
+    "department": "Isère",
+    "latitude": 45.292,
+    "longitude": 5.835,
+    "risk_level": "Medium",
+    "legality_notes": "Sensitive zone. Must bivouac at least 500m away from the Col infrastructure.",
+    "source_url": "https://www.parc-chartreuse.net/"
+  },
+  {
+    "name": "Mont Mezenc",
+    "region": "AURA",
+    "department": "Haute-Loire",
+    "latitude": 44.912,
+    "longitude": 4.192,
+    "risk_level": "Low",
+    "legality_notes": "Tolerance on public slopes. High wind. Prohibited near sensitive peat bogs.",
+    "source_url": "https://www.auvergne-rhone-alpes.fr/"
+  },
+  {
+    "name": "Sommet du Semnoz",
+    "region": "AURA",
+    "department": "Haute-Savoie",
+    "latitude": 45.795,
+    "longitude": 6.105,
+    "risk_level": "Low",
+    "legality_notes": "Tolerance for sunset-sunrise stops. No fire or stoves during summer alerts.",
+    "source_url": "https://www.haute-savoie.fr/"
+  },
+  {
+    "name": "PNR Landes de Gascogne (Hostens)",
+    "region": "Bordeaux",
+    "department": "Gironde",
+    "latitude": 44.4965,
+    "longitude": -0.6385,
+    "risk_level": "Medium",
+    "legality_notes": "Rural forest tolerance. High fire risk. Check 2026 fire-ban status weekly.",
+    "source_url": "https://www.parc-landes-de-gascogne.fr/"
+  },
+  {
+    "name": "Vallée du Ciron (Bommes)",
+    "region": "Bordeaux",
+    "department": "Gironde",
+    "latitude": 44.551,
+    "longitude": -0.354,
+    "risk_level": "Medium",
+    "legality_notes": "Permitted near river transit. Strictly no fire near Sauternais vines.",
+    "source_url": "https://www.gironde.fr/"
+  },
+  {
+    "name": "Lac de Carcans-Hourtin (East)",
+    "region": "Bordeaux",
+    "department": "Gironde",
+    "latitude": 45.182,
+    "longitude": -1.056,
+    "risk_level": "High",
+    "legality_notes": "Stealth required. Strictly 19:00 - 08:30. Avoid dune protection areas.",
+    "source_url": "https://www.medoc-atlantique.com/"
+  },
+  {
+    "name": "Delta de l'Eyre (Le Teich)",
+    "region": "Bordeaux",
+    "department": "Gironde",
+    "latitude": 44.642,
+    "longitude": -1.018,
+    "risk_level": "High",
+    "legality_notes": "Strict timing enforced. High biodiversity zone. No pets permitted in certain corridors.",
+    "source_url": "https://www.bassin-arcachon.com/"
+  },
+  {
+    "name": "Sauternais Forest (Budos)",
+    "region": "Bordeaux",
+    "department": "Gironde",
+    "latitude": 44.532,
+    "longitude": -0.384,
+    "risk_level": "Medium",
+    "legality_notes": "Low-risk forest tracks. Respect private vineyard boundaries. No fire.",
+    "source_url": "https://www.gironde.fr/"
+  }
+]
